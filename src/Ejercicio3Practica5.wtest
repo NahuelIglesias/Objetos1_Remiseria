@@ -1,0 +1,56 @@
+import Ejercicio3Practica5.*
+
+describe "coches disponibles" {
+	var cachito
+	var corsaNegro
+	var corsaVerde
+	var conExtra 
+	var sinExtra
+	var autoBeige
+	var remiseria1
+	var remiseria2
+	
+	fixture {
+		cachito = new Corsa()
+		corsaNegro = new Corsa(color = "Negro")
+		corsaVerde = new Corsa(color = "Verde")
+		conExtra = new Standart()
+		sinExtra = new Standart(tieneTanqueExtra = false)
+		autoBeige = new Distinto(capacidad = 5, velocidadMax = 160, peso = 1200, color = "Beige")
+		trafic.cambiarMotor(bataton)
+		remiseria1 = new Remiseria(flota = [cachito, corsaNegro, corsaVerde, conExtra, autoBeige])
+		remiseria2 = new Remiseria(flota = [cachito, conExtra, sinExtra, sinExtra, trafic])
+	}
+
+
+	test "test remiseria 1" {
+		assert.equals(6450, remiseria1.pesoTotalFlota())
+		assert.that(remiseria1.esRecomendable())
+		assert.equals(17, remiseria1.capacidadTotalYendoA(150))
+		assert.equals("Beige", remiseria1.colorDelAutoMasRapido())
+	}
+	test "test remiseria 2" {
+		assert.equals(10250, remiseria2.pesoTotalFlota())
+		assert.that(!remiseria2.esRecomendable())
+		assert.equals(4, remiseria2.capacidadTotalYendoA(150))
+		assert.equals("Rojo", remiseria2.colorDelAutoMasRapido())
+	}
+}
+
+
+
+
+
+
+
+
+
+/*
+Los autos de la primer remisería son: cachito; dos Corsa más, uno negro y el otro
+verde; un auto standard a gas con el tanque adicional puesto; y un auto distinto
+que tiene: capacidad 5, velocidad máxima 160 km/h, peso 1200 kg, color beige.
+
+Los autos de la segunda remisería son: cachito; tres autos standard a gas, uno con el
+tanque adicional puesto y dos sin, y la Trac, congurada con el interior cómodo y
+el motor batatón.
+*/
