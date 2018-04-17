@@ -36,21 +36,3 @@ describe "coches disponibles" {
 		assert.equals("Rojo", remiseria2.colorDelAutoMasRapido())
 	}
 }
-
-
-
-
-
-
-
-
-
-/*
-Los autos de la primer remisería son: cachito; dos Corsa más, uno negro y el otro
-verde; un auto standard a gas con el tanque adicional puesto; y un auto distinto
-que tiene: capacidad 5, velocidad máxima 160 km/h, peso 1200 kg, color beige.
-
-Los autos de la segunda remisería son: cachito; tres autos standard a gas, uno con el
-tanque adicional puesto y dos sin, y la Trac, congurada con el interior cómodo y
-el motor batatón.
-*/
